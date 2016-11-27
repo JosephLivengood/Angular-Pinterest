@@ -1,0 +1,132 @@
+$break-small: 800px
+
+.login
+    background-color: #fff
+    border-radius: 8px
+    height: 533px
+    margin-left: -400px
+    margin-top: -266px
+    width: 800px
+    left: 50%
+    top: 50%
+    position: absolute
+    padding: 0px
+    -webkit-box-shadow: 7px 7px 50px 0px rgba(0,0,0,0.8)
+    -moz-box-shadow: 7px 7px 50px 0px rgba(0,0,0,0.8)
+    box-shadow: 7px 7px 50px 0px rgba(0,0,0,0.8)
+    @media screen and (max-width: $break-small)
+        width: 100%
+        height: 115%
+        margin: 0px
+        left: 0%
+        top: 0%
+        
+.login-image
+    width: 100%
+    height: 100%
+    object-fit: cover
+    border-radius: 8px 0 0 8px
+    @media screen and (max-width: $break-small)
+        border-radius: 0
+        height: 200px
+    
+.row.no-pad
+    margin-right: 0
+    margin-left: 0
+  
+.row.no-pad > [class*='col-']
+    padding-right: 0
+    padding-left: 0
+
+.login-logo
+    width: 60px
+    height: auto
+    margin-top: 25px
+    margin-bottom: 10px
+    
+.btn-red
+    background-color: #bd081c
+    color: white
+    font-weight: bold
+    font-size: 15px
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+    &:hover
+        background-color: red
+
+.login-form
+    width: 270px
+    margin-bottom: 8px
+    
+#email-input
+    margin-top: 20px
+    font-size: 12px
+    height: 40px
+    
+#password-input
+    font-size: 13px
+    height: 40px
+    
+.title
+    margin-left: 10px
+    margin-right: 10px
+
+h2
+    font-weight: bold
+    font-size: 28px
+    color: #555
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+    
+.seperator
+    font-size: 11px
+    margin-bottom: 20px
+    margin-top: 12px
+    &::before
+        box-shadow: 0 1px 0 rgba(0,0,0,0.5)
+        content: ''
+        display: inline-block
+        height: 1px
+        position: relative
+        vertical-align: middle
+        width: 17%
+        margin-right: 10px        
+    &::after
+        box-shadow: 0 1px 0 rgba(0,0,0,0.5)
+        content: ''
+        display: inline-block
+        height: 1px
+        position: relative
+        vertical-align: middle
+        width: 17%
+        margin-left: 10px
+        
+.btn-github
+    color: #fff!important
+    width: 270px
+    
+#fine-print
+    width: 220px
+    font-size: 9px
+    color: #aaa
+    margin: 0px
+    margin-top: 10px
+
+@keyframes animatedBackground
+    from
+        background-position: 0% 0%
+    to
+        background-position: 0% 100%
+
+#animate-area
+    -webkit-box-shadow: inset 0px 0px 12px 5px rgba(255,255,255,1)
+    -moz-box-shadow: inset 0px 0px 12px 5px rgba(255,255,255,1)
+    box-shadow: inset 0px 0px 12px 5px rgba(255,255,255,1)
+    background-image: url(http://cdn.designrshub.com/wp-content/uploads/2012/08/10_free_linen_texture.jpg)
+    background-position: 0px 0px
+    background-repeat: repeat
+    animation: animatedBackground 50s linear infinite
+	
+#github-icon
+    left: 50%
+    top: 50%
+    position: absolute
+    transform: translate(-50%, -50%)

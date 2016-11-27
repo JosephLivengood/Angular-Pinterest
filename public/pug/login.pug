@@ -5,11 +5,29 @@ html
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous")
     link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
     link(rel='stylesheet', href='css/style.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css')
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js')
     script(src='js/login.js')
-  body(ng-app='login', ng-controller='LoginCtrl')
-    p hi
-  
+  body(ng-app='login', ng-controller='LoginCtrl')#animate-area
+    #github-icon(style='display:none')
+      img.img-fluid(src='http://www.aha.io/assets/integration_logos/github-bb449e0ffbacbcb7f9c703db85b1cf0b.png')
+    .login.container-fluid
+      .row.no-pad
+        .col-md-6
+          img.login-image(src='http://cdn.ozonebooks.com/wp-content/uploads/2016/09/cooking.png')
+        .col-md-6.text-xs-center
+          center
+            img.login-logo(src='https://angular.io/resources/images/logos/angular2/angular.png')
+            .title
+              h2 Welcome to the new Angular Pinterest
+            input.form-control.login-form#email-input(type="text" placeholder="Email" style="background-color: #eee")
+            input.form-control.login-form#password-input(type="password" placeholder="Create a password" style="background-color: #eee")
+            button.btn.btn-red.login-form Continue
+            p.seperator or
+            a.btn.btn-block.btn-social.btn-github.text-xs-center(ng-click='github()')
+              span.fa.fa-github
+              | Sign in with GitHub!
+            p#fine-print Creating an account or logging in means you're okay with this sites <b>Terms of Service</b>.
   
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous")
