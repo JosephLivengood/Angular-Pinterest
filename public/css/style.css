@@ -69,6 +69,16 @@ pre {
     color: black;
     -webkit-transition: all ease-in-out 0.4s; }
 
+.modal-dialog {
+  max-width: 800px; }
+
+.modal-form {
+  width: 270px; }
+
+.modal-form-input {
+  font-size: 13px;
+  height: 40px; }
+
 .login {
   background-color: #fff;
   border-radius: 8px;
@@ -130,7 +140,7 @@ pre {
 
 #email-input {
   margin-top: 20px;
-  font-size: 12px;
+  font-size: 13px;
   height: 40px; }
 
 #password-input {

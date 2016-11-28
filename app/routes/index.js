@@ -16,6 +16,9 @@ module.exports = function (app) {
         .get(passport.authenticate('github', { failureRedirect: '/' }),
             function(req, res) { res.redirect('/') });
     
+    app.route('/newpin')
+        .get(function(req, res) { res.render(path + '/public/pug/newpin') });
+    
     app.route('*')
         .get(ensureAuthenticated, function(req, res) { res.render(path + '/public/pug/index', {userinfo: req.user}) }); //JSON.stringify(req.user, null, 4)
     

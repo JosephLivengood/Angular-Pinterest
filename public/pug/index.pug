@@ -6,6 +6,7 @@ html
     link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
     link(rel='stylesheet', href='css/style.css')
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js')
+    script(src='https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js')
     script(src='js/app.js')
   body(ng-app='pinterest', ng-controller='MainCtrl')
     div.view
@@ -21,7 +22,7 @@ html
             span.input-group-addon(style='width: 45px')
               i.fa.fa-search
             input.form-control#search-bar(type='text' placeholder='Explore new ideas...')
-      i.fa.fa-plus-circle#icon-add
+      i.fa.fa-plus-circle#icon-add(ng-click='showForm()')
       i.fa.fa-info-circle#icon-help
       pre #{userinfo}
     
