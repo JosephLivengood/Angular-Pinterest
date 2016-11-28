@@ -10,7 +10,9 @@ html
     script(src='js/login.js')
   body(ng-app='login', ng-controller='LoginCtrl')#animate-area
     #github-icon(style='display:none')
-      img.img-fluid(src='http://www.aha.io/assets/integration_logos/github-bb449e0ffbacbcb7f9c703db85b1cf0b.png')
+      center
+        img.m-0.img-fluid(src='http://www.aha.io/assets/integration_logos/github-bb449e0ffbacbcb7f9c703db85b1cf0b.png')
+        i.fa.fa-spinner.fa-pulse.fa-3x.fa-fw.m-0
     .login.container-fluid
       .row.no-pad
         .col-md-6
@@ -28,6 +30,7 @@ html
               span.fa.fa-github
               | Sign in with GitHub!
             p#fine-print Creating an account or logging in means you're okay with this sites <b>Terms of Service</b>.
+            p#fine-print &copy; Joseph Livengood
   
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous")

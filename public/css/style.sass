@@ -1,8 +1,73 @@
+$break-small: 800px
+
 html
     position: relative
     min-height: 100%
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
 
 body
     background-color: #ddd
+    
+pre
+    margin-bottom: 200%
+    margin-top: 20px
+
+.view
+    margin-top: 55px
+    
+.nav-branded
+    background-color: white //#bd081c!important
+
+.img-nav
+    height: 30px
+    width: auto
+    
+.img-profile-icon
+    height: 30px
+    width: auto
+    border-radius: 5px
+    
+.nav-icon
+    margin-top: 3px
+    &:hover
+        color: #ccc
+        -webkit-transition: color 0.3s
+    
+#search-bar
+    background: #fafafa
+
+#search-form
+    width: calc(100% - 330px)
+    @media screen and (max-width: $break-small)
+        width: 100%
+      
+#icon-add
+    margin: 0
+    padding: 0
+    background: transparent
+    position: fixed
+    bottom: 60px
+    right: 10px
+    z-index: 99
+    font-size: 3em
+    -webkit-transition: all ease-in-out 0.4s
+    &:hover
+        color: black
+        font-size: 6em
+        -webkit-transition: all ease-in-out 0.4s
+        
+#icon-help
+    margin: 0
+    padding: 0
+    background: transparent
+    position: fixed
+    bottom: 10px
+    right: 10px
+    z-index: 99
+    font-size: 3em
+    -webkit-transition: all ease-in-out 0.4s
+    &:hover
+        color: black
+        -webkit-transition: all ease-in-out 0.4s
   
 @import 'login'

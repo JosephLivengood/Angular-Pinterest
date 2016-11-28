@@ -2,7 +2,7 @@ var mongo = require('mongodb').MongoClient;
 var CONNECTION_STRING = process.env.db;
 var path = process.cwd();
 
-function mostRecent () {
+function mostRecent() {
     
     this.getMostRecent = function(req, res) {
         var page = req.params.page;

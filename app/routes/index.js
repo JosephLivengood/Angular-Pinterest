@@ -17,7 +17,7 @@ module.exports = function (app) {
             function(req, res) { res.redirect('/') });
     
     app.route('*')
-        .get(ensureAuthenticated, function(req, res) { res.render(path + '/public/pug/index', {userinfo: JSON.stringify(req.user, null, 4)}) });
+        .get(ensureAuthenticated, function(req, res) { res.render(path + '/public/pug/index', {userinfo: req.user}) }); //JSON.stringify(req.user, null, 4)
     
 };
 

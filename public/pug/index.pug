@@ -8,9 +8,23 @@ html
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js')
     script(src='js/app.js')
   body(ng-app='pinterest', ng-controller='MainCtrl')
-    pre #{userinfo}
-  
-  
+    div.view
+      nav.navbar.navbar-fixed-top.navbar-light.nav-branded
+        a.navbar-brand(href='#')
+          img.img-nav.d-inline-block.align-top(src='https://angular.io/resources/images/logos/angular2/angular.png')
+          | Angular Pinterest
+        i.nav-icon.float-xs-right.fa.fa-user.fa-2x
+        i.nav-icon.float-xs-right.fa.fa-comments.fa-2x.mr-1
+        i.nav-icon.float-xs-right.fa.fa-compass.fa-2x.mr-1
+        form#search-form.form-inline.float-xs-left.mb-0
+          div.input-group(style='width: 100%')
+            span.input-group-addon(style='width: 45px')
+              i.fa.fa-search
+            input.form-control#search-bar(type='text' placeholder='Explore new ideas...')
+      i.fa.fa-plus-circle#icon-add
+      i.fa.fa-info-circle#icon-help
+      pre #{userinfo}
+    
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous")

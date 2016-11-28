@@ -1,9 +1,73 @@
 html {
   position: relative;
-  min-height: 100%; }
+  min-height: 100%;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
 
 body {
   background-color: #ddd; }
+
+pre {
+  margin-bottom: 200%;
+  margin-top: 20px; }
+
+.view {
+  margin-top: 55px; }
+
+.nav-branded {
+  background-color: white; }
+
+.img-nav {
+  height: 30px;
+  width: auto; }
+
+.img-profile-icon {
+  height: 30px;
+  width: auto;
+  border-radius: 5px; }
+
+.nav-icon {
+  margin-top: 3px; }
+  .nav-icon:hover {
+    color: #ccc;
+    -webkit-transition: color 0.3s; }
+
+#search-bar {
+  background: #fafafa; }
+
+#search-form {
+  width: calc(100% - 330px); }
+  @media screen and (max-width: 800px) {
+    #search-form {
+      width: 100%; } }
+
+#icon-add {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  position: fixed;
+  bottom: 60px;
+  right: 10px;
+  z-index: 99;
+  font-size: 3em;
+  -webkit-transition: all ease-in-out 0.4s; }
+  #icon-add:hover {
+    color: black;
+    font-size: 6em;
+    -webkit-transition: all ease-in-out 0.4s; }
+
+#icon-help {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 99;
+  font-size: 3em;
+  -webkit-transition: all ease-in-out 0.4s; }
+  #icon-help:hover {
+    color: black;
+    -webkit-transition: all ease-in-out 0.4s; }
 
 .login {
   background-color: #fff;
@@ -108,14 +172,14 @@ h2 {
 
 .btn-github {
   color: #fff !important;
-  width: 270px; }
+  width: 270px;
+  margin-bottom: 10px; }
 
 #fine-print {
   width: 220px;
   font-size: 9px;
   color: #aaa;
-  margin: 0px;
-  margin-top: 10px; }
+  margin: 0px; }
 
 @keyframes animatedBackground {
   from {
@@ -133,7 +197,7 @@ h2 {
 
 #github-icon {
   left: 50%;
-  top: 50%;
+  top: 30%;
   position: absolute;
   transform: translate(-50%, -50%); }
 
