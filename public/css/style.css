@@ -70,14 +70,21 @@ pre {
     -webkit-transition: all ease-in-out 0.4s; }
 
 .modal-dialog {
-  max-width: 800px; }
+  background-color: #fff; }
+  @media (min-width: 776px) {
+    .modal-dialog {
+      max-width: 800px; } }
 
 .modal-form {
   width: 270px; }
 
 .modal-form-input {
   font-size: 13px;
-  height: 40px; }
+  height: 40px;
+  background-color: #eee; }
+
+.newpinform {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important; }
 
 .login {
   background-color: #fff;

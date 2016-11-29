@@ -1,46 +1,30 @@
-.modal-header
-  h3 Submit a new pin!
-.container-fluid
-  .row
-    .col-xs-6
-      center
-        form.modal-form(name='form.userForm', ng-submit='submitForm()', novalidate='')
-          .modal-body
-            // NAME
-            .form-group
-              label Image URL
-              input.modal-form-input.form-control(type='url', name='imagelink', ng-model='imagelink', required='', placeholder='http://images.apple.com/v/ipad/compare/d/images/compare/compare_ipad_pro129_large.jpg')
-            // USERNAME
-            .form-group
-              label Title
-              input.modal-form-input.form-control(type='text', name='title', ng-model='title', ng-minlength='3', ng-maxlength='25', required='', placeholder='Apple iPad Pro 2')
-              p.help-block(ng-show='form.userForm.title.$error.minlength') Title is too short.
-              p.help-block(ng-show='form.userForm.title.$error.maxlength') Title is too long.
-            // EMAIL
-            .form-group
-              label Desciption
-              input.modal-form-input.form-control(type='text', name='desc', ng-model='desc', ng-minlength='3', ng-maxlength='25', required='', placeholder='Wow- I want this asap!')
-              p.help-block(ng-show='form.userForm.desc.$error.minlength') Desciption is too short.
-              p.help-block(ng-show='form.userForm.desc.$error.maxlength') Desciption is too long.
-            .form-group
-              label Tags
-              input.modal-form-input.form-control(type='text', name='tags', ng-model='tags', ng-minlength='3', ng-maxlength='60', required='', placeholder='Tech Apple iPad Future Electronics')
-              p.help-block(ng-show='form.userForm.tags.$error.minlength') Tag list is too short.
-              p.help-block(ng-show='form.userForm.tags.$error.maxlength') Tag list is too long.      
-          .modal-footer
-            button.btn.btn-primary(type='submit', ng-disabled='form.userForm.$invalid') Pin
-            button.btn.btn-warning(ng-click='cancel()') Cancel
-.container-fluid
-  .row.no-pad
-    .col-md-6
-      img.img-fluid(src='http://cdn.ozonebooks.com/wp-content/uploads/2016/09/cooking.png')
-    .col-md-6.text-xs-center
-      center
-        img.login-logo(src='https://angular.io/resources/images/logos/angular2/angular.png')
-        .title
-          h2 Welcome to the new Angular Pinterest
-        input.form-control.login-form#email-input(type="text" placeholder="Email" style="background-color: #eee")
-        input.form-control.login-form#password-input(type="password" placeholder="Create a password" style="background-color: #eee")
-        button.btn.btn-red.login-form Continue
-        p.seperator or
-        p#fine-print Creating an account or logging in means you're okay with this sites <b>Terms of Service</b>.
+.modal-header.text-xs-center
+  h2 Create a new Pin!
+.modal-body
+    .container-fluid
+      .row.no-pad
+        .col-md-6
+          img.img-fluid(ng-src='{{imagelink}}')
+        .col-md-6
+          center
+            form.modal-form(action='/api/test', method='POST')
+              .newpinform
+                .form-group
+                  input.modal-form-input.form-control(type='url', name='imagelink', ng-model='userForm.imagelink', required='', placeholder='Image URL')
+                .form-group
+                  input.modal-form-input.form-control(type='url', name='optlink', ng-model='userForm.optlink', placeholder='Link to site (optional)')
+                .form-group
+                  input.modal-form-input.form-control(type='text', name='title', ng-model='userForm.title', ng-minlength='3', ng-maxlength='25', required='', placeholder='Title')
+                  p.help-block(ng-show='form.userForm.title.$error.minlength') Title is too short.
+                  p.help-block(ng-show='form.userForm.title.$error.maxlength') Title is too long.
+                .form-group
+                  input.modal-form-input.form-control(type='text', name='tag', ng-model='userForm.tag', ng-minlength='3', ng-maxlength='60', required='', placeholder='Tags (seperated by space)')
+                  p.help-block(ng-show='form.userForm.tag.$error.minlength') Tag list is too short.
+                  p.help-block(ng-show='form.userForm.tag.$error.maxlength') Tag list is too long.
+                .form-group
+                  input.modal-form-input.form-control(type='text', name='desc', ng-model='userForm.desc', placeholder='Comment (optional)')
+                .form-group
+                  button.btn.btn-red(type='submit', ng-disabled='form.userForm.$invalid') Submit
+.modal-footer
+  center
+    button.btn.btn-red(ng-click='cancel()') Cancel

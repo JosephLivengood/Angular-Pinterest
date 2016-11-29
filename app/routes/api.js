@@ -18,4 +18,10 @@ module.exports = function (app) {
     app.route('/api/pin/create/:url')
         .post(newPinHandler.createPin);
     
+    app.route('/api/test')
+        .post(function(req, res) {
+            var test = req.body.title;
+            console.log(test);
+        });
+    
 };
