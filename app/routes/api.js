@@ -15,7 +15,7 @@ module.exports = function (app) {
     app.route('/api/pin')
         .post(pinHandler.addPin);
         
-    app.route('/api/pin/create/:url')
+    app.route('/api/pin/new')
         .post(newPinHandler.createPin);
     
 };

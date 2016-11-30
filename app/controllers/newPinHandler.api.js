@@ -5,8 +5,8 @@ var path = process.cwd();
 function newPinHandler() {
     
     this.createPin = function(req, res) {
-        
-        
+        console.log(JSON.stringify(req.body));
+        res.send('complete');
     };
     
 }

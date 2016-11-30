@@ -24,12 +24,44 @@ app.controller('MainCtrl',['$scope', '$modal', '$log', function($scope, $modal, 
     };
 }]);
 
-var ModalInstanceCtrl = function ($scope, $modalInstance, userForm) {
+var ModalInstanceCtrl = function ($scope, $modalInstance, userForm, $http) {
     $scope.form = {};
-    $scope.submitForm = function () {
+    $scope.master = {};
+    $scope.submitForm = function(pin) {
         if ($scope.form.userForm.$valid) {
             console.log('user form is in scope');
-            $modalInstance.close('closed');
+            $scope.master = angular.copy(pin);
+            console.log('test'+$scope.master);
+            
+            var data = $.param({
+                imagelink: $scope.master.imagelink,
+                optlink: $scope.master.optlink,
+                title: $scope.master.title,
+                tag: $scope.master.tag,
+                desc: $scope.master.desc
+            });
+            
+            $http({
+                method: 'POST',
+                url: '/api/pin/new',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                transformRequest: function(obj) {
+                    var str = [];
+                    for(var p in obj)
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    return str.join("&");
+                },
+                data: {imagelink: $scope.master.imagelink,
+                optlink: $scope.master.optlink,
+                title: $scope.master.title,
+                tag: $scope.master.tag,
+                desc: $scope.master.desc}
+            }).success(function () {
+                console.log('yup');
+            });
+            
+            
+            //$modalInstance.close('closed');
         } else {
             console.log('userform is not in scope');
         }
