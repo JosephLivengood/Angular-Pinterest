@@ -29,18 +29,7 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, userForm, $http) {
     $scope.master = {};
     $scope.submitForm = function(pin) {
         if ($scope.form.userForm.$valid) {
-            console.log('user form is in scope');
             $scope.master = angular.copy(pin);
-            console.log('test'+$scope.master);
-            
-            var data = $.param({
-                imagelink: $scope.master.imagelink,
-                optlink: $scope.master.optlink,
-                title: $scope.master.title,
-                tag: $scope.master.tag,
-                desc: $scope.master.desc
-            });
-            
             $http({
                 method: 'POST',
                 url: '/api/pin/new',
@@ -59,9 +48,7 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, userForm, $http) {
             }).success(function () {
                 console.log('yup');
             });
-            
-            
-            //$modalInstance.close('closed');
+            $modalInstance.close('closed');
         } else {
             console.log('userform is not in scope');
         }
