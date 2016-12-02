@@ -6,7 +6,7 @@ html {
 body {
   background-color: #ddd; }
 
-pre {
+pre.space {
   margin-bottom: 200%;
   margin-top: 20px; }
 
@@ -70,21 +70,34 @@ pre {
     -webkit-transition: all ease-in-out 0.4s; }
 
 .modal-dialog {
-  background-color: #fff; }
+  background-color: #fff !important; }
   @media (min-width: 776px) {
     .modal-dialog {
       max-width: 800px; } }
 
+.modal-content {
+  margin-top: 15%;
+  outline: none; }
+
 .modal-form {
-  width: 270px; }
+  width: 100%;
+  max-width: 330px; }
 
 .modal-form-input {
-  font-size: 13px;
+  font-size: 12px;
   height: 40px;
-  background-color: #eee; }
+  background-color: #eee;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  margin-bottom: 10px; }
 
-.newpinform {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important; }
+#pin-mockup {
+  border-radius: 5px;
+  background-color: #ddd;
+  width: 90%;
+  height: 400px;
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%; }
 
 .login {
   background-color: #fff;

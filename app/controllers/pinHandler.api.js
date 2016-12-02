@@ -4,7 +4,7 @@ var path = process.cwd();
 
 function pinHandler() {
     
-    this.addPin = function(req, res) {
+    this.rePin = function(req, res) {
         mongo.connect(CONNECTION_STRING,function(err,db) {
 		    if (err) console.log(err);
             var collection=db.collection('pins');

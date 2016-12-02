@@ -11,17 +11,8 @@ module.exports = function (app) {
     
     app.route('/api/mostRecent/:page')
         .get(mostRecentHandler.getMostRecent);
-    
-    app.route('/api/pin')
-        .post(pinHandler.addPin);
         
-    app.route('/api/pin/create/:url')
+    app.route('/api/pin/new')
         .post(newPinHandler.createPin);
-    
-    app.route('/api/test')
-        .post(function(req, res) {
-            var test = req.body.title;
-            console.log(test);
-        });
     
 };
