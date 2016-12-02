@@ -6,14 +6,13 @@ html
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
 
 body
-    background-color: #ddd
-    
-pre.space
-    margin-bottom: 200%
-    margin-top: 20px
+    background-color: #eee //#ddd
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important
 
 .view
-    margin-top: 55px
+    margin-top: 85px
+    margin-left: 30px
+    margin-right: 30px
     
 .nav-branded
     background-color: white //#bd081c!important
@@ -99,4 +98,43 @@ pre.space
     margin-top: 5%
     margin-bottom: 5%
   
+.grid
+    border: 1px solid #cccccc
+    list-style: none
+    background: #ffffff
+    -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.3)
+    -moz-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.3)
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.3)
+    box-sizing: border-box
+    -moz-box-sizing: border-box
+    -webkit-transition: all 0.6s ease-out
+    transition: all 0.6s ease-out
+    overflow: hidden
+    border-radius: 10px
+
+.grid-img
+    width: 100%
+    vertical-align: middle
+    -webkit-transition: opacity 0.6s ease-out
+    transition: opacity 0.6s ease-out
+    background-color: #fff
+    opacity: 0
+    visibility: hidden
+    &.img-loaded
+        visibility: visible
+        opacity: 1
+        
+.pin-desc-wrapper
+    padding: 10px
+    
+.pin-title
+    font-size: 18px
+    line-height: 22px
+    color: #333
+    
+.pin-upload-date
+    margin-top: 5px
+    font-size: 14px
+    color: #999
+
 @import 'login'

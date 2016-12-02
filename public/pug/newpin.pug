@@ -14,14 +14,14 @@
             // NAME
             .form-group
               input.modal-form-input.form-control(type='url', name='imagelink', ng-model='pin.imagelink', ng-model-options="{ updateOn: 'blur' }", required='', placeholder='Image URL')
-              input.modal-form-input.form-control(type='url', name='optlink', ng-model='pin.optlink', required='', placeholder='Page URL (optional)')
+              input.modal-form-input.form-control(type='url', name='optlink', ng-model='pin.optlink', placeholder='Page URL (optional)')
               input.modal-form-input.form-control(type='text', name='title', ng-model='pin.title', ng-minlength='3', ng-maxlength='25', required='', placeholder='Title')
               p.help-block(ng-show='form.userForm.title.$error.minlength') Title is too short.
               p.help-block(ng-show='form.userForm.title.$error.maxlength') Title is too long.
               input.modal-form-input.form-control(type='text', name='tag', ng-model='pin.tag', ng-minlength='10', ng-maxlength='60', required='', placeholder='Tags seperated by space')
               p.help-block(ng-show='form.userForm.tags.$error.minlength') Tag list is too short.
               p.help-block(ng-show='form.userForm.tags.$error.maxlength') Tag list is too long.              
-              input.modal-form-input.form-control(type='text', name='desc', ng-model='pin.desc', ng-minlength='3', ng-maxlength='25', required='', placeholder='Personal comment (optional)')
+              input.modal-form-input.form-control(type='text', name='desc', ng-model='pin.desc', ng-minlength='3', ng-maxlength='25', placeholder='Personal comment (optional)')
               p.help-block(ng-show='form.userForm.desc.$error.minlength') Desciption is too short.
               p.help-block(ng-show='form.userForm.desc.$error.maxlength') Desciption is too long.
           .modal-footer
