@@ -22,6 +22,13 @@ module.exports = function (app) {
     app.use(passport.session());
     
     passport.serializeUser(function(user, done) {
+        var email, photo, location;
+        
+        /*Handling missing data for some users with incomplete GitHub profiles*/
+        user.emails ? email = user.emails[0].value : email = 'NONE';
+        user.photos ? photo = user.photos[0].value : photo = 'http://vignette4.wikia.nocookie.net/jamesbond/images/6/61/Generic_Placeholder_-_Profile.jpg/revision/latest?cb=20121227201208'; //'/assets/placeholder.jpg';
+        user._json.location ? location = user._json.location : location = 'Unknown'; 
+        
         mongo.connect(CONNECTION_STRING,function(err,db) {
 		    if (err) console.log(err);
             var collection=db.collection('users');
@@ -31,9 +38,9 @@ module.exports = function (app) {
                 {$setOnInsert:{
                     ghid: user.id,
                     name: user.displayName,
-                    email: user.emails[0].value,
-                    photo: user.photos[0].value,
-                    location: user._json.location,
+                    email: email,//user.emails[0].value,
+                    photo: photo,//user.photos[0].value,
+                    location: location,//user._json.location,
                     role: 'user',
                     pins: [],
                     boards: []
@@ -46,7 +53,6 @@ module.exports = function (app) {
                 }
             );
         });
-        //done(null, user.id);
     });
     
     passport.deserializeUser(function(id, done) {

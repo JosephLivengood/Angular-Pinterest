@@ -19,7 +19,6 @@ function mostRecent() {
                 db.close();
             });
         });
-        
     };
     
 }

@@ -29,9 +29,21 @@ html
         li.grid(data-ng-repeat='pic in pics')
           img.grid-img(src='{{pic.imagelink}}',data-actual-height="500px")
           .pin-desc-wrapper
-            .pin-title {{pic.title}}
+            .container-fluid.m-0.p-0
+              .row.no-pad
+                .col-xs-10.m-0.p-0
+                  .pin-title {{pic.title}}
+                .col-xs-2.m-0.p-0
+                  i.fa.fa-repeat  {{pic.pincount}}
             .pin-upload-date Uploaded on December 1, 2016
-            i.fa.fa-repeat  {{pic.pincount}}
+            .container-fluid.m-0.p-0
+              .row.no-pad
+                .col-xs-2.m-0.p-0.text-xs-left
+                  .pin-recent-pinner-pic
+                      img(src='{{pic.recentpinner.pic}}', style='width: 30px; border-radius: 30px;')                
+                .col-xs-10.text-xs-left.m-0.p-0
+                  .pin-recent-pinner(style='margin-top: 3px!important') {{pic.recentpinner.name}}
+                  .pin-recent-pinner {{pic.recentpinner.desc}}
     
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous")

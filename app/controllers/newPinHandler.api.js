@@ -12,9 +12,13 @@ function newPinHandler() {
             "title": req.body.title,
             "tag": req.body.tag.split(' '),
             "pincount": 1,
-            "date": new Date()
+            "date": new Date(),
+            "recentpinner": {
+                "name": req.user.name,
+                "pic": req.user.photo,
+                "desc": req.body.desc
+            }
         };
-        
         mongo.connect(CONNECTION_STRING,function(err,db) {
             if (err) console.log(err);
             var collection=db.collection('pins');
@@ -32,7 +36,7 @@ function newPinHandler() {
                     }}}
                 );
             });
-         });
+        });
         res.send('complete');
     };
     
