@@ -25,9 +25,9 @@ html
             input.form-control#search-bar(type='text' placeholder='Explore new ideas...')
       i.fa.fa-plus-circle#icon-add(ng-click='showForm()')
       i.fa.fa-info-circle#icon-help
-      ul.dynamic-grid(angular-grid='pics', ag-grid-width='250', ag-gutter-size='10', ag-id='gallery', ag-refresh-on-img-load='false')
-        li.grid(data-ng-repeat='pic in pics')
-          img.grid-img(src='{{pic.imagelink}}',data-actual-height="500px")
+      ul.dynamic-grid(angular-grid='pics', ag-grid-width='250', ag-gutter-size='10', ag-id='gallery', ag-refresh-on-img-load='true', ag-infinite-scroll="loadMore()")
+        li.grid.mb-2(data-ng-repeat='pic in pics')
+          img.grid-img(src='{{pic.imagelink}}',data-actual-height="1000px")
           .pin-desc-wrapper
             .container-fluid.m-0.p-0
               .row.no-pad
@@ -42,7 +42,7 @@ html
                   .pin-recent-pinner-pic
                       img(src='{{pic.recentpinner.pic}}', style='width: 30px; border-radius: 30px;')                
                 .col-xs-10.text-xs-left.m-0.p-0
-                  .pin-recent-pinner(style='margin-top: 3px!important') {{pic.recentpinner.name}}
+                  .pin-recent-pinner(style='margin-top: 3px!important') <b>{{pic.recentpinner.name}}</b>
                   .pin-recent-pinner {{pic.recentpinner.desc}}
     
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous")

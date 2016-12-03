@@ -2,24 +2,42 @@
 var app = angular.module('pinterest', ['ui.bootstrap', 'angularGrid']);
 
 app.service('imageService',['$q','$http',function($q,$http){
-        this.loadImages = function(){
-            return $http.get("/api/mostrecent/1");
+        this.loadImages = function(i){
+            console.log("/api/mostrecent/"+i);
+            return $http.get("/api/mostrecent/"+i);
         };
     }]);
 
 app.controller('MainCtrl',['$scope', '$modal', '$log','imageService','angularGridInstance',
     function($scope, $modal, $log,imageService,angularGridInstance){
         
-        imageService.loadImages().then(function(data){
+        /*Page of API call for infinite scroll*/
+        var page = 1;
+        imageService.loadImages(page).then(function(data){
+            $scope.pics = data.data;
+            page++;
+        });
+        $scope.loadMore = function(){
+            imageService.loadImages(page).then(function(nextPageImages){
+                $scope.pics = $scope.pics.concat(nextPageImages.data);
+                page++;
+            });
+        };
+        /*
+        $scope.loadRecent = function () {
+            imageService.loadImages().then(function(data){
                 data.data.forEach(function(obj){
                     obj.actualHeight  = 'auto';
                     obj.actualWidth = 'auto';
                 });
-               $scope.pics = data.data;
+                $scope.pics = data.data;
             });
             $scope.refresh = function(){
                 angularGridInstance.gallery.refresh();
             };
+        };
+        $scope.loadRecent();
+        */
         
         $scope.showForm = function () {
             $scope.message = "Show Form Button Clicked";
@@ -43,7 +61,7 @@ app.controller('MainCtrl',['$scope', '$modal', '$log','imageService','angularGri
         };
 }]);
 
-var ModalInstanceCtrl = function ($scope, $modalInstance, userForm, $http) {
+var ModalInstanceCtrl = function (angularGridInstance, imageService, $scope, $modalInstance, userForm, $http) {
     $scope.form = {};
     $scope.master = {};
     $scope.submitForm = function(pin) {
@@ -65,7 +83,7 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, userForm, $http) {
                 tag: $scope.master.tag,
                 desc: $scope.master.desc}
             }).success(function () {
-                console.log('yup');
+                //$scope.loadRecent();
             });
             $modalInstance.close('closed');
         } else {

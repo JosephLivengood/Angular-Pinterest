@@ -13,7 +13,7 @@ function mostRecent() {
                 {},
                 {},
                 {sort: {date: -1}}
-            ).skip(40*(page-1)).limit(40).toArray(function(err, doc) {
+            ).skip(15*(page-1)).limit(15).toArray(function(err, doc) {
                 if (err) console.log(err);
                 res.json(doc);
                 db.close();
