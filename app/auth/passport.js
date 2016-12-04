@@ -10,7 +10,7 @@ module.exports = function (app) {
     passport.use(new GithubStrategy({
             clientID: process.env.ci,
             clientSecret: process.env.cs,
-            callbackURL: "https://pinterest-livengood.c9users.io/auth/github/callback"
+            callbackURL: "http://livepinterest.herokuapp.com/auth/github/callback"
         },
         function(accessToken, refreshToken, profile, done) {
             return done(null, profile);
