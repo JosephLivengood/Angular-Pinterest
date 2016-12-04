@@ -95,7 +95,8 @@ app.controller('MainCtrl',['$scope', '$modal', '$log','imageService','pinService
         };
         
         $scope.repin = function(id) {
-            pinService.repin(id);    
+            $('#overlay').fadeOut(500);
+            pinService.repin(id);
         };
         
         $scope.showForm = function () {
