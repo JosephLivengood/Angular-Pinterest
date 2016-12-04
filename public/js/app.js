@@ -26,6 +26,11 @@ app.controller('MainCtrl',['$scope', '$modal', '$log','imageService','pinService
         var cate = '';
         $scope.currentboard = 'Most Recent';
             imageService.loadImages(page).then(function(data){
+                data.data.forEach(function(obj){
+                    var matches = obj.optlink.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
+                    var domain = matches && matches[1]; 
+                    obj.optlinkcut  = domain;
+                });
                 $scope.pics = data.data;
                 page++;
             });
@@ -35,11 +40,21 @@ app.controller('MainCtrl',['$scope', '$modal', '$log','imageService','pinService
             if ($scope.currentboard == 'Personal Board') return;
             if ($scope.currentboard == 'Most Recent') {
                 imageService.loadImages(page).then(function(nextPageImages){
+                    nextPageImages.data.forEach(function(obj){
+                        var matches = obj.optlink.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
+                        var domain = matches && matches[1]; 
+                        obj.optlinkcut  = domain;
+                    });
                     $scope.pics = $scope.pics.concat(nextPageImages.data);
                     page++;
                 });
             } else {
                 imageService.loadCateBoard(cate, page).then(function(nextPageImages){
+                    nextPageImages.data.forEach(function(obj){
+                        var matches = obj.optlink.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
+                        var domain = matches && matches[1]; 
+                        obj.optlinkcut  = domain;
+                    });
                     $scope.pics = $scope.pics.concat(nextPageImages.data);
                     page++;
                 });
@@ -51,6 +66,11 @@ app.controller('MainCtrl',['$scope', '$modal', '$log','imageService','pinService
             $scope.currentboard = 'Most Recent';
             page = 1;
             imageService.loadImages(page).then(function(data){
+                data.data.forEach(function(obj){
+                    var matches = obj.optlink.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
+                    var domain = matches && matches[1]; 
+                    obj.optlinkcut  = domain;
+                });
                 $scope.pics = data.data;
                 page++;
             });
@@ -77,22 +97,6 @@ app.controller('MainCtrl',['$scope', '$modal', '$log','imageService','pinService
         $scope.repin = function(id) {
             pinService.repin(id);    
         };
-        
-        /*
-        $scope.loadRecent = function () {
-            imageService.loadImages().then(function(data){
-                data.data.forEach(function(obj){
-                    obj.actualHeight  = 'auto';
-                    obj.actualWidth = 'auto';
-                });
-                $scope.pics = data.data;
-            });
-            $scope.refresh = function(){
-                angularGridInstance.gallery.refresh();
-            };
-        };
-        $scope.loadRecent();
-        */
         
         $scope.showForm = function () {
             $scope.message = "Show Form Button Clicked";

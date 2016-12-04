@@ -4,9 +4,8 @@
   .row.no-pad
     .col-md-6
       #pin-mockup
-        img.img-fluid(ng-src='{{pin.imagelink}}')
-        p {{pin | json}}
-        p {{res}}
+        center
+          img#pinpic.img-fluid(ng-src='{{pin.imagelink}}')
     .col-md-6
       center
         form.modal-form(name='form.userForm', ng-submit='submitForm(pin)', novalidate='', style='margin-top: 12%')

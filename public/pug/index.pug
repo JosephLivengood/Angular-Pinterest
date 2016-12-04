@@ -46,6 +46,8 @@ html
                 .col-xs-2.m-0.p-0
                   i.fa.fa-repeat  {{pic.pincount}}
             .pin-upload-date(ng-if="currentboard != 'Personal Board'") Uploaded on December 1, 2016
+            .pin-optlink
+              a(href="{{pic.optlink}}" ng-if="pic.optlink != 'undefined'") {{pic.optlinkcut}}
             .container-fluid.m-0.p-0(ng-if="currentboard != 'Personal Board'")
               .row.no-pad
                 .col-xs-2.m-0.p-0.text-xs-left
