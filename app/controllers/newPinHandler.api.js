@@ -31,8 +31,6 @@ function newPinHandler() {
                     {},
                     {$addToSet: { pins: {
                         "pinid": doc.ops[0]._id,
-                        "desc": req.body.desc,
-                        "likes": 1,
                         "board": "personal"
                     }}}
                 );

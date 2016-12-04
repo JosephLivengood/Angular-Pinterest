@@ -2,19 +2,25 @@
 var app = angular.module('pinterest', ['ui.bootstrap', 'angularGrid']);
 
 app.service('imageService',['$q','$http',function($q,$http){
-        this.loadImages = function(i){
-            return $http.get("/api/mostrecent/"+i);
-        };
-        this.loadUserBoard = function(){
-            return $http.get("/api/userboard");
-        };
-        this.loadCateBoard = function(cate, i){
-            return $http.get("/api/cate/"+cate+'/'+i);
-        };
-    }]);
+    this.loadImages = function(i){
+        return $http.get("/api/mostrecent/"+i);
+    };
+    this.loadUserBoard = function(){
+        return $http.get("/api/userboard");
+    };
+    this.loadCateBoard = function(cate, i){
+        return $http.get("/api/cate/"+cate+'/'+i);
+    };
+}]);
+    
+app.service('pinService',['$q','$http',function($q,$http){
+    this.repin = function(id) {
+        return $http.post("/api/pin/"+id);
+    };
+}]);
 
-app.controller('MainCtrl',['$scope', '$modal', '$log','imageService','angularGridInstance',
-    function($scope, $modal, $log,imageService,angularGridInstance){
+app.controller('MainCtrl',['$scope', '$modal', '$log','imageService','pinService','angularGridInstance',
+    function($scope, $modal, $log,imageService,pinService,angularGridInstance){
         /*START-init on most recent pins*/
         var page = 1;
         var cate = '';
@@ -69,7 +75,7 @@ app.controller('MainCtrl',['$scope', '$modal', '$log','imageService','angularGri
         };
         
         $scope.repin = function(id) {
-            console.log(id);    
+            pinService.repin(id);    
         };
         
         /*

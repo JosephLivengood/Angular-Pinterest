@@ -18,6 +18,9 @@ module.exports = function (app) {
     app.route('/api/pin/new')
         .post(newPinHandler.createPin);
         
+    app.route('/api/pin/:id')
+        .post(pinHandler.repin);
+        
     app.route('/api/cate/:cate/:page')
         .get(mostRecentHandler.getCateBoard);
     
