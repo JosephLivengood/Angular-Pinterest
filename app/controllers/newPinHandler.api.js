@@ -16,7 +16,8 @@ function newPinHandler() {
             "recentpinner": {
                 "name": req.user.name,
                 "pic": req.user.photo,
-                "desc": req.body.desc
+                "desc": req.body.desc,
+                "ghid": req.user.ghid
             }
         };
         mongo.connect(CONNECTION_STRING,function(err,db) {

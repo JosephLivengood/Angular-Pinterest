@@ -147,6 +147,21 @@ body {
   width: 30px;
   border-radius: 30px; }
 
+.dropdown-menu {
+  left: -145px; }
+
+.pinimage {
+  position: relative; }
+
+#overlay {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px; }
+
+li.grid:hover #overlay {
+  display: inline; }
+
 .login {
   background-color: #fff;
   border-radius: 8px;

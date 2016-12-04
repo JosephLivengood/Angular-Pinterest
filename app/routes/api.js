@@ -12,7 +12,13 @@ module.exports = function (app) {
     app.route('/api/mostRecent/:page')
         .get(mostRecentHandler.getMostRecent);
         
+    app.route('/api/userboard')
+        .get(mostRecentHandler.getUserBoard);
+        
     app.route('/api/pin/new')
         .post(newPinHandler.createPin);
+        
+    app.route('/api/cate/:cate/:page')
+        .get(mostRecentHandler.getCateBoard);
     
 };

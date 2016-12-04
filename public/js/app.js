@@ -3,26 +3,75 @@ var app = angular.module('pinterest', ['ui.bootstrap', 'angularGrid']);
 
 app.service('imageService',['$q','$http',function($q,$http){
         this.loadImages = function(i){
-            console.log("/api/mostrecent/"+i);
             return $http.get("/api/mostrecent/"+i);
+        };
+        this.loadUserBoard = function(){
+            return $http.get("/api/userboard");
+        };
+        this.loadCateBoard = function(cate, i){
+            return $http.get("/api/cate/"+cate+'/'+i);
         };
     }]);
 
 app.controller('MainCtrl',['$scope', '$modal', '$log','imageService','angularGridInstance',
     function($scope, $modal, $log,imageService,angularGridInstance){
-        
-        /*Page of API call for infinite scroll*/
+        /*START-init on most recent pins*/
         var page = 1;
-        imageService.loadImages(page).then(function(data){
-            $scope.pics = data.data;
-            page++;
-        });
-        $scope.loadMore = function(){
-            imageService.loadImages(page).then(function(nextPageImages){
-                $scope.pics = $scope.pics.concat(nextPageImages.data);
+        var cate = '';
+        $scope.currentboard = 'Most Recent';
+            imageService.loadImages(page).then(function(data){
+                $scope.pics = data.data;
+                page++;
+            });
+        /*END-init on most recent pins*/    
+        
+        $scope.loadMore = function() {
+            if ($scope.currentboard == 'Personal Board') return;
+            if ($scope.currentboard == 'Most Recent') {
+                imageService.loadImages(page).then(function(nextPageImages){
+                    $scope.pics = $scope.pics.concat(nextPageImages.data);
+                    page++;
+                });
+            } else {
+                imageService.loadCateBoard(cate, page).then(function(nextPageImages){
+                    $scope.pics = $scope.pics.concat(nextPageImages.data);
+                    page++;
+                });
+            }
+        };
+        
+        $scope.loadRecent = function () {
+            $scope.pics = {};
+            $scope.currentboard = 'Most Recent';
+            page = 1;
+            imageService.loadImages(page).then(function(data){
+                $scope.pics = data.data;
                 page++;
             });
         };
+        
+        $scope.loadPersonal = function () {
+            imageService.loadUserBoard().then(function(data){
+                $scope.currentboard = 'Personal Board';
+                $scope.pics = data.data;
+                angularGridInstance.gallery.refresh();
+            });            
+        };
+        
+        $scope.loadCate = function(cate) {
+            $scope.pics = {};
+            $scope.currentboard = cate;
+            page = 1;
+            imageService.loadCateBoard(cate, 1).then(function(data){
+                $scope.pics = data.data;
+                angularGridInstance.gallery.refresh();
+            });            
+        };
+        
+        $scope.repin = function(id) {
+            console.log(id);    
+        };
+        
         /*
         $scope.loadRecent = function () {
             imageService.loadImages().then(function(data){

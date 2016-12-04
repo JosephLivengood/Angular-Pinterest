@@ -15,9 +15,15 @@ html
         a.navbar-brand(href='#')
           img.img-nav.d-inline-block.align-top(src='https://angular.io/resources/images/logos/angular2/angular.png')
           | Angular Pinterest
-        i.nav-icon.float-xs-right.fa.fa-user.fa-2x
-        i.nav-icon.float-xs-right.fa.fa-comments.fa-2x.mr-1
-        i.nav-icon.float-xs-right.fa.fa-compass.fa-2x.mr-1
+        i.nav-icon.float-xs-right.fa.fa-user.fa-2x(ng-click='loadPersonal()')
+        .dropdown.float-xs-right.mr-3
+          i.nav-icon.fa.fa-compass.fa-2x.dropdown-toggle(href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+          .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+            a.dropdown-item(href='' ng-click='loadCate("Food")') Food
+            a.dropdown-item(href='' ng-click='loadCate("Tech")') Tech
+            a.dropdown-item(href='' ng-click='loadCate("Funny")') Funny
+            a.dropdown-item(href='' ng-click='loadCate("Nature")') Nature
+            a.dropdown-item(href='' ng-click='loadCate("Fashion")') Fashion
         form#search-form.form-inline.float-xs-left.mb-0
           div.input-group(style='width: 100%')
             span.input-group-addon(style='width: 45px')
@@ -25,9 +31,13 @@ html
             input.form-control#search-bar(type='text' placeholder='Explore new ideas...')
       i.fa.fa-plus-circle#icon-add(ng-click='showForm()')
       i.fa.fa-info-circle#icon-help
+      h3.text-xs-center {{currentboard}}  
+        i.fa.fa-times(ng-if="currentboard != 'Most Recent'" ng-click="loadRecent()")
       ul.dynamic-grid(angular-grid='pics', ag-grid-width='250', ag-gutter-size='10', ag-id='gallery', ag-refresh-on-img-load='true', ag-infinite-scroll="loadMore()")
         li.grid.mb-2(data-ng-repeat='pic in pics')
-          img.grid-img(src='{{pic.imagelink}}',data-actual-height="1000px")
+          .pinimage
+            img.grid-img(src='{{pic.imagelink}}',data-actual-height="1000px")
+            button#overlay.btn.btn-red(ng-click='repin(pic._id)') Pin
           .pin-desc-wrapper
             .container-fluid.m-0.p-0
               .row.no-pad
@@ -35,8 +45,8 @@ html
                   .pin-title {{pic.title}}
                 .col-xs-2.m-0.p-0
                   i.fa.fa-repeat  {{pic.pincount}}
-            .pin-upload-date Uploaded on December 1, 2016
-            .container-fluid.m-0.p-0
+            .pin-upload-date(ng-if="currentboard != 'Personal Board'") Uploaded on December 1, 2016
+            .container-fluid.m-0.p-0(ng-if="currentboard != 'Personal Board'")
               .row.no-pad
                 .col-xs-2.m-0.p-0.text-xs-left
                   .pin-recent-pinner-pic
